@@ -1,0 +1,14 @@
+DB-SQL 
+CREATE TABLE Usuario (
+    usuario_id INT(11) NOT NULL AUTO_INCREMENT,
+    usuario_nombres VARCHAR(50) NOT NULL,
+    usuario_Apellido_Paterno VARCHAR(20) NOT NULL,
+    usuario_Apellido_Materno VARCHAR(20) NOT NULL,
+    usuario_email VARCHAR(100) NOT NULL,
+    usuario_contrasena VARCHAR(255) NOT NULL,
+    usuario_fecha_registro DATE NOT NULL DEFAULT CURDATE(),
+    usuario_rol ENUM('estudiante', 'instructor', 'administrador') NOT NULL DEFAULT 'estudiante',
+    usuario_estado_cuenta ENUM('activa', 'suspendida') NOT NULL DEFAULT 'activa',
+    PRIMARY KEY (usuario_id),
+    UNIQUE KEY usuario_email (usuario_email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
